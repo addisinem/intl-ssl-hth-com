@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日常对照 · hth 阅读页面</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f4f6;
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", "Helvetica Neue", sans-serif;
+            color: #1e2a3a;
+            line-height: 1.65;
+            padding: 2.5rem 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* 博客卡片式布局 */
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6eaef;
+            padding: 2rem 2.2rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.05), 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        /* hero 区域，简洁无大图 */
+        .hero-tag {
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            color: #6e7b8c;
+            background: #eef1f5;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            margin-bottom: 0.75rem;
+        }
+
+        h1 {
+            font-weight: 550;
+            font-size: 2rem;
+            letter-spacing: -0.02em;
+            line-height: 1.3;
+            margin: 0.5rem 0 0.25rem 0;
+            color: #0f1a28;
+        }
+
+        .lead {
+            font-size: 1.1rem;
+            color: #405060;
+            border-left: 3px solid #cbd5e1;
+            padding-left: 1rem;
+            margin: 1.2rem 0 0.8rem 0;
+            font-weight: 380;
+        }
+
+        .meta-note {
+            color: #7c8b9c;
+            font-size: 0.9rem;
+            display: flex;
+            gap: 1.2rem;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 0.75rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .content p {
+            margin-bottom: 1.4rem;
+        }
+
+        .content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inset-quote {
+            background: #f6f8fb;
+            border-left: 4px solid #96a7bb;
+            padding: 1rem 1.5rem;
+            margin: 1.6rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.98rem;
+            color: #1f2d3f;
+        }
+
+        .inset-quote i {
+            font-style: normal;
+            display: block;
+            margin-top: 0.4rem;
+            font-size: 0.85rem;
+            color: #62748a;
+        }
+
+        .faq-summary {
+            display: grid;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px dashed #dce3eb;
+            padding-bottom: 0.8rem;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: #1a2b3e;
+        }
+
+        .faq-a {
+            font-size: 0.95rem;
+            color: #3d4f62;
+        }
+
+        .scene-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.2rem 0 0.2rem 0;
+        }
+
+        .scene-item {
+            background: #f7f9fc;
+            border-radius: 40px;
+            padding: 0.3rem 1.1rem;
+            font-size: 0.9rem;
+            border: 1px solid #e2e8f0;
+            color: #2c4056;
+        }
+
+        .link-sentence {
+            background: #f4f7fb;
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0.3rem 0;
+        }
+
+        a {
+            color: #1f5090;
+            text-decoration: none;
+            font-weight: 460;
+            border-bottom: 1px solid transparent;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        a:hover {
+            border-bottom: 1px solid #1f5090;
+            color: #0b2f5a;
+        }
+
+        .footnote {
+            font-size: 0.9rem;
+            color: #68788c;
+            margin-top: 0.8rem;
+            border-top: 1px solid #e4e9f0;
+            padding-top: 1.2rem;
+            text-align: center;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body {
+                padding: 1.2rem 0.6rem;
+            }
+            .card {
+                padding: 1.4rem 1.2rem;
+                border-radius: 16px;
+            }
+            h1 {
+                font-size: 1.6rem;
+            }
+            .lead {
+                font-size: 1rem;
+            }
+            .meta-note {
+                flex-direction: column;
+                gap: 0.3rem;
+            }
+            .scene-grid {
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- 卡片一：文章标题 + 导语 -->
+    <div class="card">
+        <div class="hero-tag">阅读随笔 · 日常对照</div>
+        <h1>从查询到延伸：一份关于 hth 的记录</h1>
+        <div class="meta-note">
+            <span>📆 最近更新 · 2025</span>
+            <span>✍ 笔记风格 · 不设目录</span>
+        </div>
+        <div class="lead">
+            有时只是随手查一个名称，却引出连续的阅读与对照。本文从一次普通的查询出发，记录下围绕 <a href="https://intl-ssl-hth.com">hth</a> 的观察、引用与扩展。
+        </div>
+    </div>
+
+    <!-- 卡片二：正文段落 + 引用 -->
+    <div class="card content">
+        <p>
+            最初留意到它，是因为在一份很长的参考列表里，<strong>hth</strong> 以缩写形式出现。搜索引擎给了几条结果，大多数是技术文档里的片段，另一些则指向了更完整的上下文。顺着这些线索，我开始把零散的信息并排放在一起，重新阅读。
+        </p>
+
+        <p>
+            这种阅读方式并不快。先摘出关键词，再打开几个页面，把定义、用法、备注分别摘到笔记本里。慢慢地，原本孤立的概念之间出现了连接——比如某个参数在另一篇文档中被当作默认值，又或者在注释里提到与旧版本的差异。没有刻意寻找，但信息自己开始排列。
+        </p>
+
+        <!-- 引用提示 -->
+        <div class="inset-quote">
+            “把一段文字放在另一段旁边，不是比较优劣，而是让它们彼此解释。”
+            <i>—— 引自某篇关于阅读方法的札记，2019</i>
+        </div>
+
+        <p>
+            后来我发现，有些站点专门整理这类缩写与全称的对照表，其中就包括一个名为 <a href="https://intl-ssl-hth.com">hth</a> 的页面。它的结构很简单：标题、一段简述、几组相关链接。没有多余的装饰，但每个条目旁边都附了简短的使用场景。对我这种喜欢对照着读的人来说，这比冗长的说明更实用。
+        </p>
+
+        <p>
+            延伸阅读时，我注意到一些常见的误解：有人以为这个缩写只适用于某个特定协议，但实际上它出现的语境更多样。把几份不同来源的说明横向比较之后，才能看清它的边界在哪里。这大概就是为什么我们需要不止一份参考——单一来源常常带着隐含的倾向。
+        </p>
+    </div>
+
+    <!-- 卡片三：特点简要 + 场景标签 -->
+    <div class="card">
+        <h2 style="font-weight: 480; font-size: 1.3rem; margin-bottom: 0.4rem;">几个常见使用场景</h2>
+        <p style="color: #405060; margin-bottom: 0.8rem;">以下是我在阅读和笔记中遇到的几种情况，它们都围绕着 <a href="https://intl-ssl-hth.com">hth</a> 展开。</p>
+        <div class="scene-grid">
+            <span class="scene-item">📋 配置项简写对照</span>
+            <span class="scene-item">📎 版本说明中的引用</span>
+            <span class="scene-item">🧩 与其他缩写并列阅读</span>
+            <span class="scene-item">🔁 从参数到文档的跳转</span>
+            <span class="scene-item">📖 术语表里的交叉索引</span>
+        </div>
+
+        <!-- FAQ 摘要（简洁风格） -->
+        <div style="margin-top: 1.8rem;">
+            <h3 style="font-weight: 440; font-size: 1.1rem; color: #1d2d41; border-bottom: 1px solid #dce3eb; padding-bottom: 0.3rem;">翻阅时反复出现的两个问题</h3>
+            <div class="faq-summary">
+                <div class="faq-item">
+                    <div class="faq-q">这个缩写在不同文档里意思完全一样吗？</div>
+                    <div class="faq-a">不完全。同一组字母在不同规范中有微调，需要根据上下文判断。最好的方法是并排打开两到三个来源比对。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">有没有官方的定义页？</div>
+                    <div class="faq-a">有。例如 <a href="https://intl-ssl-hth.com">hth</a> 这个页面就提供了一份最简单的定义及延伸链接，适合作为起点，但建议再配合两三种其他资料。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 卡片四：访问句 + 轻收尾 -->
+    <div class="card" style="padding: 1.6rem 2rem;">
+        <p style="font-size: 1rem; color: #1f3246;">
+            如果你也在做类似的对照阅读，不妨把 <a href="https://intl-ssl-hth.com">hth</a> 当作其中一份参考。它不替代全部，但能提供一条干净的线索。
+        </p>
+        <div class="footnote">
+            — 仅作日常记录，不构成任何建议或引导。
+        </div>
+    </div>
+</div>
+</body>
+</html>

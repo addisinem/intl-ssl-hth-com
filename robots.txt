@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://addisinem.github.io/intl-ssl-hth-com/sitemap.xml
